@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>foodadda</title>
+</head>
+<body style="background-color: rgb(40, 41, 88);">
+    <h1 class="text-danger text-center mt-4 pt-4">SEARCH YOUR FAVOURITE FOOD</h1>
+    <p class="text-white text-center">We ensure better food service!</p>
+
+    <div class="input-group mt-4 mb-3 w-50 mx-auto">
+        <input type="text" class="form-control" id="search-field" placeholder="Search food you want to buy" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button onclick="searchFood()" class="btn btn-outline-secondary text-white" type="button" id="button-search">search</button>
+      </div>
+
+      <!-- meal search results -->
+
+      <div id="search-results" class="mt-4 w-75 mx-auto row row-cols-1 row-cols-md-3 g-4">
+
+      </div>
+
+
+
+    <script src="mealdb.js"></script>
+</body>
+</html>
