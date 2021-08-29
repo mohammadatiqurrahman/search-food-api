@@ -17,7 +17,7 @@ const rcvData = foods =>{
        const div = document.createElement('div')
        div.classList.add('col')
        div.innerHTML=`
-       <div class="card h-100">
+       <div onclick="mealInformation(${food.idMeal})" class="card h-100">
        <img style="padding: 10px; border-radius: 25px;" src="${food.strMealThumb}" class="card-img-top" alt="...">
        <div class="card-body">
          <h5 class="card-title"> ${food.strMeal}</h5>
@@ -27,4 +27,26 @@ const rcvData = foods =>{
        `
        searchResults.appendChild(div)
     }
+}
+
+const mealInformation = mealId =>{
+  // console.log(mealId)
+  const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
+  fetch(url)
+  .then(res => res.json())
+  .then(data => getMealInformation(data.meals[0]))
+}
+
+const getMealInformation = mealInfo =>{
+  console.log(mealInfo)
+
+  const getDiv = document.getElementById('more-info')
+  getDiv.innerHTML=`
+  <img  style="padding: 5px; border-radius: 25px;" src="${mealInfo.strMealThumb}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${mealInfo.strMeal}</h5>
+    <p class="card-text">${mealInfo.strInstructions.slice(0,100)}</p>
+    <a href="${mealInfo.strYoutube}" class="btn btn-primary">receipe</a>
+  </div>
+  `
 }
