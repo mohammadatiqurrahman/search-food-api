@@ -1,3 +1,15 @@
+const  searchField = document.getElementById("search-field");
+const buttonSearch = document.getElementById("button-search");
+
+searchField.addEventListener("keypress", function(event) {
+    // event.preventDefault();
+    if (event.keyCode == 13){
+      buttonSearch.click();
+    }
+        
+});
+
+
 const searchFood =() =>{
     const inputValue = document.getElementById('search-field')
     const getInputValue = inputValue.value;
@@ -18,6 +30,7 @@ const searchFood =() =>{
 const rcvData = foods =>{
     // console.log(foods)
     const foodList = foods.meals;
+
     // console.log(foodList)
     const searchResults = document.getElementById('search-results')
 
@@ -60,3 +73,6 @@ const getMealInformation = mealInfo =>{
   </div>
   `
 }
+
+
+
